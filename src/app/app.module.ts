@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
-import { WeatherService} from './weather.service';
+import { WeatherService } from './weather.service';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CitySearchComponent } from './city-search/city-search.component';
 
+import {MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CitySearchComponent } from './city-search/city-search.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +33,6 @@ import { CitySearchComponent } from './city-search/city-search.component';
     MatIconModule,
     MatCardModule
   ],
-
   exports: [
     FormsModule,
     ReactiveFormsModule,
@@ -43,7 +44,6 @@ import { CitySearchComponent } from './city-search/city-search.component';
     MatCardModule,
     BrowserAnimationsModule
   ],
-
   providers: [WeatherService],
   bootstrap: [AppComponent]
 })

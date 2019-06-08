@@ -9,6 +9,7 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./city-search.component.css']
 })
 export class CitySearchComponent implements OnInit {
+
   @Output() searchEvent = new EventEmitter<string>();
 
   search = new FormControl('', [Validators.minLength(3)])
@@ -16,15 +17,17 @@ export class CitySearchComponent implements OnInit {
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-    this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue : string) => {
-      if(!this.search.invalid){
-        this.searchEvent.emit(searchValue);
-    }
-    })
+    this.search.valueChanges
+      .pipe(debounceTime(1000))
+      .subscribe((searchValue : string) => {
+        if (!this.search.invalid){
+          this.searchEvent.emit(searchValue);
+        }
+      })
   }
-  getErrorMessage() {
-    return this.search.hasError('minlength') ? 'Type three or more characters in the search box' : '';
-  
-  }
-}
 
+  getErrorMessage() {
+    return this.search.hasError('minlength') ? 'Type three or more characters in the search box ' : '';
+  }
+
+}
